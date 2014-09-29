@@ -1,0 +1,4 @@
+eshop
+=====
+
+angularjs+sailsjs+mongodb
