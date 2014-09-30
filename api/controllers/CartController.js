@@ -122,27 +122,6 @@ module.exports = {
 	});    
   },
   
-    /**
-   * Action blueprints:
-   *    `/cart/ts`
-   */
-   ts: function (req, res) {
-    var data = req.param('data');
-    // Send a JSON response
-	req.session.cartinfo = data;
-	return res.json({sts: 0});
-  },
-  
-   /**
-   * Action blueprints:
-   *    `/cart/getTs`
-   */
-   getTs: function (req, res) {
-    // Send a JSON response
-	return res.json(req.session.cartinfo);
-  },
-
-
   /**
    * Action blueprints:
    *    `/cart/findAll`

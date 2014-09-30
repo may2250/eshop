@@ -2355,7 +2355,7 @@ address, cite, dfn, em, var {
 	zoom: 1;
 }
 
-.order-info .icon-box .iconfont {
+.order-info .icon-box .c_ok {
 	display: block;
 	width: 90px;
 	height: 90px;
@@ -2370,6 +2370,105 @@ address, cite, dfn, em, var {
 	border: 5px solid #83bd39;
 	color: #83bd39;
 	border-radius: 50%;
+}
+
+.xm-plain-box .box-hd {
+	position: relative;
+	height: 50px;
+}
+
+.xm-plain-box .box-hd .title {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 400;
+	line-height: 50px;
+	color: #333;
+}
+
+.payment-con .xm-plain-box .box-bd {
+	border-bottom: none;
+}
+
+.xm-plain-box .box-bd {
+	border: 1px solid #dfdfdf;
+	background: #fff;
+}
+
+.payment-box dt {
+	width: 200px;
+	padding: 25px 20px 20px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	color: #333;
+	font-size: 12px;
+	z-index: 10;
+}
+
+.payment-box dt strong {
+	font-size: 14px;
+}
+
+.payment-box dt p {
+	color: #8c8c8c;
+}
+
+.payment-box dd {
+	width: 100%;
+	position: relative;
+	background: #fafafa;
+	z-index: 5;
+}
+
+.payment-list {
+	margin-left: 240px;
+	padding: 20px;
+	background: #fff;
+}
+
+.payment-list li {
+	float: left;
+	width: 167px;
+	padding: 10px 0;
+}
+
+.payment-box {
+	border-bottom: 1px solid #dfdfdf;
+	position: relative;
+}
+
+.payment-list li input {
+	vertical-align: middle;
+}
+
+.payment-list li img {
+	margin-left: 5px;
+}
+
+.payment-list li label {
+	cursor: pointer;
+}
+
+.payment-con .xm-plain-box .box-ft {
+	background: #fafafa;
+	padding: 20px 30px;
+	margin-top: 20px;
+	border-top: none;
+}
+
+.payment-con .xm-plain-box .box-ft .btn, .payment-con .xm-plain-box .box-ft .tip {
+	float: right;
+	margin-left: 10px;
+}
+
+.payment-con .xm-plain-box .box-ft .btn-lineDakeLight {
+	border-color: #dfdfdf;
+}
+
+.btn-lineDakeLight {
+	background-color: #fafafa;
+	border-color: #f3f3f3;
+	color: #333;
 }
 
 

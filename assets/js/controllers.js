@@ -281,7 +281,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		
 		$scope.accounts = function(){
 			var data = $scope.carts;
-			$sails.post("/cart/ts", {data: data}).success(function (r) {	
+			$sails.post("/global/setTS", {data: data}).success(function (r) {	
 				//暂存购物车信息
 				$location.path('/buy/checkout');
 			});		
@@ -351,13 +351,28 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 	.controller('confirmCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;
+		//支付方式
+		$scope.pay = '';
 		//已下单,清除购物车信息
 		$sails.get('/cart/drop').success(function (r) {
            
         })
 		.error(function (data) {
-				alert('checklogin, we got a problem!');
-		});		
+				alert('cart/drop, we got a problem!');
+		});	
+		//获取缓存订单信息
+		$sails.get('/global/getOS').success(function (r) {           
+		   $scope.addrinfo = r.addrinfo[0];
+		   $scope.orderinfo = r.orderinfo;
+		   //alert('--------'+ JSON.stringify($scope.addrinfo) );
+        })
+		.error(function (data) {
+				alert('getOS, we got a problem!');
+		});
+		$scope.payway = function(way){
+			$scope.pay = way;
+		};
+		
 	}])
 	.controller('orderCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/
@@ -534,7 +549,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 					.error(function (data) {
 						alert('Houston, we got a problem!');
 					});
-			/*$sails.get("/user/findOne", {username: username}).success(function (user) {
+			$sails.get("/user/findOne", {username: username}).success(function (user) {
 				if(user != null){
 					alert('User has exist!');
 					
@@ -550,7 +565,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 						alert('Houston, we got a problem!');
 					});
 				}
-			})*/
+			})
 			
 		};
 	}])
@@ -593,7 +608,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			alert('addrfindAll, we got a problem!');
 		});
 		
-		$sails.get('/cart/getTs').success(function (result) {
+		$sails.get('/global/getTS').success(function (result) {
 			//alert('-------------getTs-----------------'+ JSON.stringify(result));
 			$scope.ts = result;
 			$scope.pricetotal = 0.0;
@@ -775,7 +790,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			return true;
 		};
 		
-		$scope.orderComfirn = function() {
+		$scope.orderConfirm = function() {
 			if($scope.addrselected =='' || $scope.addrselected == undefined){
 				alert('请选择收货地址!!');
 				return;
@@ -783,8 +798,12 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			var json = {'addrid': $scope.addrselected, 'payway': '在线支付', 'cartinfo': $scope.ts, 'pricetotal': $scope.pricetotal + 10};
 			$sails.post('/order/create', json).success(function (result) {
 					if(result.sts == 0){
-						//success
-						$location.path('/buy/confirm');
+						//暂存订单信息
+						json = {'orderid': result.id, 'addrid': $scope.addrselected, 'payway': '在线支付', 'cartinfo': $scope.ts, 'pricetotal': $scope.pricetotal + 10};
+						$sails.post('/global/setOS', json).success(function (r) {
+							$location.path('/buy/confirm');
+						});
+						
 					}else{
 						alert('/order/create, we got a problem!');
 					}

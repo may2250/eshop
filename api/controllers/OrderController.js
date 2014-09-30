@@ -72,7 +72,7 @@ module.exports = {
 			}
 			// Send a JSON response
 			return res.json({
-			  sts: 0
+			  sts: 0, id: result.id
 			});
 		});
 	
