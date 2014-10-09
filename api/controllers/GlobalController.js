@@ -4,6 +4,8 @@
  * @description :: Server-side logic for managing globals
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
+ 
+var elastic = require('./ElasticserverController');
 
 module.exports = {
 
@@ -50,6 +52,16 @@ module.exports = {
 		return res.json(json);
 	});
     
+  },
+  
+  /**
+   * `GlobalController.search()`
+   */
+  search: function (req, res) {
+	var key = req.param('key');
+	var q = 'keys:'+key;
+	var resp = elastic.search('eshop',q);
+    return res.json(resp);
   }
 };
 

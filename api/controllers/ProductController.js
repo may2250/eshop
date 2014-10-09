@@ -65,11 +65,12 @@ module.exports = {
 	var combos = req.param('combos');
 	var desc = req.param('desc');
 	var tag = req.param('tag');
+	var keys = req.param('keys');
     // Send a JSON response
 	console.log('------------product create------------------');
 	Product.create({
 		sn: sn, classify: classify, price: price, oldprice: oldprice, imgurl: imgurl,pics:pics, proname: proname,
-		regdate: regdate, inventory: inventory, color:color, colors:colors, combos:combos, desc: desc, tag: tag, producturl: producturl
+		regdate: regdate, inventory: inventory, color:color, colors:colors, combos:combos, desc: desc, tag: tag, keys: keys, producturl: producturl
 	}).exec( function createCB(err, r){
 		if(err){
 			console.log(JSON.stringify(err));
@@ -78,7 +79,7 @@ module.exports = {
 			});
 		};
 		//insert to elasticsearch		
-		var resp = elastic.create('eshop','product',r.id,{title:proname,tags:classify,imgurl:imgurl,price:price,desc:desc,inventory:inventory,
+		var resp = elastic.create('eshop','product',r.id,{title:proname,tags:keys,imgurl:imgurl,price:price,desc:desc,inventory:inventory,
 			producturl:producturl});
 		//is inset successful?
 		console.log('-----resp---'+ JSON.stringify(resp));

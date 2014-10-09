@@ -6,8 +6,8 @@
 	</div>
 	<div class="header-info">
 		<div class="search-section">
-			<form id="J_searchForm" class="search-form clearfix" action="/search" method="get">
-                <input class="search-text" type="search" name="keyword" autocomplete="off" data-search-config="{'defaultWords':[&quot;大橘子&quot;,&quot;小橘子&quot;,&quot;红橘子&quot;,&quot;黄橘子&quot;]}" placeholder="搜索您需要的商品">
+			<form id="J_searchForm" class="search-form clearfix" ng-submit="search()" method="get">
+                <input class="search-text" type="search" name="keyword" autocomplete="off" ng-model="search_key" placeholder="搜索您需要的商品">
                 <input type="submit" class="search-btn" value="搜索" />
                 <!--[if IE 6]><div class="ie6-fix"></div><![endif]-->
 				<div id="J_keywordList" class="keyword-list" style="opacity: 0;">

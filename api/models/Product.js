@@ -78,6 +78,9 @@ module.exports = {
 	},
 	tag: {
 		type:'string'
+	},
+	keys: {	//搜索用关键字
+		type:'array'
 	}
   	/* e.g.
   	nickname: 'string'

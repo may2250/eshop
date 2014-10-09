@@ -41,6 +41,7 @@ var app = angular.module('myApp', [
   $routeProvider.when('/buy/checkout', {templateUrl: 'partials/checkout.html', controller: 'addressCtrl'});
   $routeProvider.when('/buy/confirm', {templateUrl: 'partials/confirm.html', controller: 'confirmCtrl'});
   $routeProvider.when('/about', {templateUrl: 'partials/about.html'});
+  $routeProvider.when('/search', {templateUrl: 'partials/search.html', controller: 'searchCtrl'});
   
   $routeProvider.when('/pro_a', {templateUrl: 'partials/product_a.html', controller: ''});
   $routeProvider.when('/pro_b', {templateUrl: 'partials/product_b.html', controller: ''});
