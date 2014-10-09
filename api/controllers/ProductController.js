@@ -14,6 +14,7 @@
  *
  * @docs        :: http://sailsjs.org/#!documentation/controllers
  */
+ var elastic = require('./ElasticserverController');
  
 function DateFormat(formatStr, date)   
 {   
@@ -75,7 +76,12 @@ module.exports = {
 			return res.json({
 			  sts: 1
 			});
-		}
+		};
+		//insert to elasticsearch		
+		var resp = elastic.create('eshop','product',r.id,{title:proname,tags:classify,imgurl:imgurl,price:price,desc:desc,inventory:inventory,
+			producturl:producturl});
+		//is inset successful?
+		console.log('-----resp---'+ JSON.stringify(resp));
 		return res.json({
 		  sts: 0
 		});

@@ -42,12 +42,8 @@ module.exports = {
   /**
    * `ElasticserverController.create()`
    */
-  create: function (req, res) {
-	var index = req.param('index');
-	var type = req.param('type');
-	var id = req.param('id');
-	var body = req.param('body');
-    client.create({
+  create: function (index,type,id,body) {
+	var res = client.create({
 		index: index,
 		type: type,
 		id: id,
@@ -55,63 +51,57 @@ module.exports = {
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.create()====='+JSON.stringify(error));
-			return res.json( error );
+			return error;
 		}else{
-			return res.json( response );
+			return response;
 		}
 	});
+	return res;
   },
   
   /**
    * `ElasticserverController.delete()`
    */
-  delete: function (req, res) {
-	var index = req.param('index');
-	var type = req.param('type');
-	var id = req.param('id');
-    client.delete({
+  delete: function (index,type,id) {
+    var res = client.delete({
 		index: index,
 		type: type,
 		id: id
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.delete()====='+JSON.stringify(error));
-			return res.json( error );
+			return error;
 		}else{
-			return res.json( response );
+			return response ;
 		}
 	});
+	return res;
   },
   
   
   /**
    * `ElasticserverController.deleteByQuery()`
    */
-  deleteByQuery: function (req, res) {
-	var index = req.param('index');
-	var q = req.param('q');
-    client.deleteByQuery({
+  deleteByQuery: function (index, q) {
+    var res = client.deleteByQuery({
 	  index: index,
 	  q: q
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.deleteByQuery()====='+JSON.stringify(error));
-			return res.json( error);
+			return error;
 		}else{
-			return res.json( response );;
+			return response;;
 		}
 	});
+	return res;
   },
   
    /**
    * `ElasticserverController.explain()`
    */
-  explain: function (req, res) {
-	var index = req.param('index');
-	var type = req.param('type');
-	var id = req.param('id');
-	var q = req.param('q');
-	client.explain({
+  explain: function (index,type,id,q) {
+	var res = client.explain({
 		// the document to test
 		index: index,
 		type: type,
@@ -122,22 +112,19 @@ module.exports = {
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.explain()====='+JSON.stringify(error));
-			return res.json( error);
+			return error;
 		}else{
-			return res.json( response );;
+			return response;
 		}
 	});
+	return res;
   },
   
   /**
    * `ElasticserverController.update()`
    */
-  update: function (req, res) {
-	var index = req.param('index');
-	var type = req.param('type');
-	var id = req.param('id');
-	var body = req.param('body');
-    client.update({
+  update: function (index,type,id,body) {
+    var res = client.update({
 		index: index,
 		type: type,
 		id: id,
@@ -148,31 +135,31 @@ module.exports = {
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.update()====='+JSON.stringify(error));
-			return res.json( error);
+			return error;
 		}else{
-			return res.json( response );
+			return response;
 		}
 	})
+	return res;
   },
 
 
   /**
    * `ElasticserverController.search()`
    */
-  search: function (req, res) {
-	var index = req.param('index');
-	var q = req.param('q');
-    client.search({
+  search: function (index,q) {
+    var res = client.search({
 		index: index,
 		q: q
 	}, function (error, response) {
 		if(error){
 			console.log('-------ElasticserverController.search()====='+JSON.stringify(error));
-			return res.json( error);
+			return error;
 		}else{
-			return res.json( response );
+			return response;
 		}
 	});
+	return res;
   }
 };
 
