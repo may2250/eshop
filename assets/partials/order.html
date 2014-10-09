@@ -200,6 +200,9 @@
 					</div>
                 </div>
 			</div>
+			<div class="pagelist" ng-show="numPages > 1">
+				<pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page=10></pagination>
+			</div>
 		</div>
 	</div>
 </div>

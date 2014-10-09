@@ -11,7 +11,7 @@ var client = new elasticsearch.Client({
   log: {
     type: 'file',
     level: 'trace',
-    path: '/log/elasticsearch.log'
+    path: '/elasticsearch.log'
   }
 });
 

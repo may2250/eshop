@@ -100,16 +100,40 @@ module.exports = {
    *    `/order/findAll`
    */
    findAll: function (req, res) {    
-    //var userid = req.param('userid');
+    var index = req.param('index');
     // Send a JSON response
 	//console.log('------/order/findAll----'+req.session.userid);
-	Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).exec(function findCB(err,result){
+	Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
 		if(err){
 			return console.log(err);
 		}		
 		console.log('----orders---->>>>>>'+JSON.stringify(result));
 		return res.json( result );
 	
+	});
+  },
+  
+  /**
+   * Action blueprints:
+   *    `/order/count`
+   */
+   count: function (req, res) {
+    var userid = req.session.userid;
+	Order.count({userid: userid}).exec(function countCB(err,num){
+		if(err){
+			return res.json({sts: 2});
+		}
+		if(num >0){
+			// Send a JSON response
+			return res.json({
+			  sts: 0,
+			  num: num
+			});
+		}else{
+			return res.json({
+			  sts: 1
+			});
+		}
 	});
   },
 

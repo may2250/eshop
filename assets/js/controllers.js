@@ -378,6 +378,10 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;
 		$scope.isempty = true;	
+		$scope.maxSize = 5;
+		$scope.bigTotalItems = 1;
+		$scope.bigCurrentPage = 1;
+		$scope.numPages = 1;
 		$sails.get('/user/checklogin').success(function (user) {
             $scope.resetLogin(user);
 			$scope.userid = user.id;
@@ -402,7 +406,23 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			}
 		});		
 		
-		$sails.get("/order/findAll").success(function (data) {	
+		$sails.get("/order/count").success(function (num) {
+			if(num.sts == 0){
+				if(num.num < 10){
+					$scope.numPages = 1;
+				}else if(num.num % 10 == 0){
+					$scope.numPages =  num.num / 10;
+				}else{
+					$scope.numPages =  num.num / 10 + 1;
+				}
+				$scope.bigTotalItems = num.num;
+				//alert('--------bigTotalItems--'+$scope.bigTotalItems);
+			}else{
+				$scope.numPages = 1;
+			}
+		});	
+		
+		$sails.get("/order/findAll", {index: 1}).success(function (data) {	
 			if(data == ''){
 				
 			}else{
@@ -418,6 +438,27 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		.error(function (data){
 			
 		});	
+		
+		$scope.$watch('bigCurrentPage',function(){
+			//实时更新页面
+			//alert('-------' + $scope.bigCurrentPage);	
+			$sails.get("/order/findAll", {index: $scope.bigCurrentPage}).success(function (data) {	
+				if(data == ''){
+					
+				}else{
+					$scope.isempty = false;
+					$scope.orders = data;
+					//转换购物车信息到JSON格式，以便前端遍历
+					$scope.orders.forEach(function(order,i){
+						$scope.orders[i].proinfo = JSON.parse(order.proinfo);
+					});
+					//alert('--------'+JSON.stringify(data[0].proinfo));
+				}
+			})
+			.error(function (data){
+				
+			});				
+		});
 	}])
 	.controller('userinfoCtrl', ['$scope', '$sails', '$location', function($scope, $sails, $location ) {
 		/* 隐藏layout部分*/
