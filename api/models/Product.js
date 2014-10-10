@@ -80,7 +80,7 @@ module.exports = {
 		type:'string'
 	},
 	keys: {	//搜索用关键字
-		type:'array'
+		type:'string'
 	}
   	/* e.g.
   	nickname: 'string'
