@@ -2533,13 +2533,13 @@ address, cite, dfn, em, var {
 	display: block;
 }
 
-.fav-item-hover .add-cat-box:hover .add-cat-bg, .fav-item-hover .go-shop-box:hover {
+.fav-item-hover .add-cat-box:hover .add-cat-bg, .fav-item-hover .go-shop-box:hover .go-shop-bg, .fav-item-hover .delete-box:hover .delete-btn-bg, .fav-item-hover .findsame-btn:hover {
 	background-color: #f40;
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
 
-.fav-item-hover .go-shop-box, .fav-item-hover .add-cat-box, .fav-item-hover .delete-box, .fav-item-hover .findsame-btn {
+.fav-item-hover .go-shop-bg, .fav-item-hover .add-cat-bg, .fav-item-hover .delete-btn-bg {
 	background-color: #000;
 	filter: alpha(opacity=50);
 	opacity: .5;
@@ -2563,6 +2563,10 @@ address, cite, dfn, em, var {
 
 .fav-item .knockdown .knockdown-picon, .fav-item-hover .delete-btn, .fav-item-hover .note-txt-icon {
 	background: url(/img/TB1URyPGXXXXXcRXFXX.2vyPVXX-41-793.png) -9999px -9999px no-repeat;
+}
+
+.fav-item-hover .add-cat-btn {
+	background-position: 3px 6px;
 }
 
 .fav-item-hover .delete-btn {

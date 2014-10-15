@@ -418,6 +418,26 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		.error(function (data){
 			
 		});	
+		
+		$scope.stdelete = function(psn){
+			$sails.get("/store/del",{psn:psn}).success(function (data) {	
+				if(data == ''){
+					$scope.isempty = true;
+				}else{
+					$scope.isempty = false;
+					//已收藏的商品
+					$scope.stores = data;
+					
+				}
+			})
+			.error(function (data){
+				
+			});	
+		};
+		
+		$scope.addToCart = function(url){
+			$location.path( url );
+		};
 	}])
 	.controller('orderCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/
@@ -937,14 +957,14 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			//add c1  mobile
 			/*var data = {sn : 'MB1000001', proname : '大锤 C1', classify : 'mobile',oldprice:899, price : 799, imgurl : '../img/product/pro_1.jpg',
 			pics : ['c1/1377394349_55_2276.png','c1/1377393383_95_5390.png','c1/1377393385_25_1165.png','c1/1377393386_56_3345.png','c1/1377393390_77_5538.png'],
-			producturl : '/goods/c1', regdate : DateFormat('yyyy-MM-dd hh:mm:ss',new Date()), inventory : 100, color : '红盖', colors : ['红盖','黄盖','白盖'],
+			producturl : '/goods/mobile', regdate : DateFormat('yyyy-MM-dd hh:mm:ss',new Date()), inventory : 100, color : '红盖', colors : ['红盖','黄盖','白盖'],
 			combos:{},
 			desc : '4.5寸 720P屏幕 4核1.2G处理器 1GRAM+4GROM 前200万摄像头 后800万摄像头，三色呼吸灯，NFC通信，安卓4.1操作系统', tag : '测试产品', keys:'手机,大锤,后800万摄像头,4.5寸,720P屏幕,C1,安卓4.1操作系统'};
 			*/
 			//add c2 mobile
 			var data = {sn : 'MB1000002', proname : '大锤 C2', classify : 'mobile',oldprice:1399, price : 1299, imgurl : '../img/product/pro_1.jpg',
 			pics : ['c2/1377304636_13_3296.png','c2/1377304642_81_2707.png','c2/1377304645_73_2873.png','c2/1377304653_76_6318.png','c2/1377304665_46_5265.png'],
-			producturl : '/goods/c2', regdate : DateFormat('yyyy-MM-dd hh:mm:ss',new Date()), inventory : 100, color : '黑色', colors : ['黑色','白色'],
+			producturl : '/goods/mobile', regdate : DateFormat('yyyy-MM-dd hh:mm:ss',new Date()), inventory : 100, color : '黑色', colors : ['黑色','白色'],
 			combos:{},
 			desc : '5寸 1080P屏幕 4核1.5G处理器 1GRAM+16GROM 前500万摄像头 后1300万摄像头，三色呼吸灯，NFC通信，OTG连接，安卓4.2操作系统', tag : '测试产品', keys:'手机,大锤,后1300万摄像头,5寸,1080P屏幕,C2,安卓4.2操作系统'};
 			//insert product
