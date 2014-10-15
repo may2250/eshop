@@ -2,14 +2,17 @@ eshop
 =====
 
 angularjs+sailsjs+mongodb
-
+=====
 Install sailsJs
+=====
 	Visit http://sailsjs.org/ to download SailsJs
 	
 1. Run mongodb server
 2. Type sails lift in command line
 3. http://localhost:1337/#/test add  new product
-	>>>		change annotations to add different products in /eshop/assets/js/controller.js
+	>>>	
+=====
+	change annotations to add different products in /eshop/assets/js/controller.js
 		.controller('testCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;	
@@ -42,4 +45,3 @@ Install sailsJs
 				}
 			});
 		};
-	<<<<<<

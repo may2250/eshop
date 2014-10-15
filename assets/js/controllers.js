@@ -92,8 +92,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				alert('product/findBySn, we got a problem!');
 		});
 		
-		$scope.updateprice = function(){
-			
+		$scope.store = function(){
+			$sails.post('/store/create',{psn:$scope.productinfo.sn ,proname: $scope.productinfo.proname, classify: $scope.productinfo.classify,
+				price: $scope.productinfo.price,
+				imgurl: $scope.productinfo.imgurl, tag: $scope.productinfo.tag, producturl: $scope.productinfo.producturl})
+			.success(function (r){
+				if(r.sts == 1){
+					alert('---err---'+JSON.stringify(r));
+					alert('收藏失败!');
+				}else if(r.sts == 2 ){
+					alert('该商品已被收藏!');
+				}else{
+					alert('已成功收藏!');
+				}
+			});
 		};
 		
 		$scope.open = function (size) {		
@@ -373,6 +385,39 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			$scope.pay = way;
 		};
 		
+	}])
+	.controller('storeCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
+		/* 显示layout部分*/
+		$scope.$parent.j_islogin = true;
+		$scope.isempty = false;
+		$sails.get('/user/checklogin').success(function (user) {
+            $scope.resetLogin(user);
+			$scope.userid = user.id;
+			//alert('-------0-----' +$scope.userid );
+			if($scope.userid == ''){
+				//alert('-------1-----');
+				$location.path('/login');
+			}else if($scope.userid == undefined){
+				//alert('-------2-----');
+				$location.path('/login');
+			}
+        })
+		.error(function (data) {
+				alert('checklogin, we got a problem!');
+		});	
+		$sails.get("/store/find").success(function (data) {	
+			if(data == ''){
+				$scope.isempty = true;
+			}else{
+				$scope.isempty = false;
+				//已收藏的商品
+				$scope.stores = data;
+				
+			}
+		})
+		.error(function (data){
+			
+		});	
 	}])
 	.controller('orderCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/

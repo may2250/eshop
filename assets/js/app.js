@@ -35,6 +35,7 @@ var app = angular.module('myApp', [
   $routeProvider.when('/signup', {templateUrl: 'partials/register.html', controller: 'regCtrl'});
   $routeProvider.when('/userinfo', {templateUrl: 'partials/userinfo.html', controller: 'userinfoCtrl'});
   $routeProvider.when('/changeP', {templateUrl: 'partials/changeP.html', controller: 'userinfoCtrl'});
+  $routeProvider.when('/store', {templateUrl: 'partials/store.html', controller: 'storeCtrl'});
   $routeProvider.when('/user/address', {templateUrl: 'partials/address.html', controller: 'addressCtrl'});
   $routeProvider.when('/cart', {templateUrl: 'partials/cart.html', controller: 'cartCtrl'});
   $routeProvider.when('/order', {templateUrl: 'partials/order.html', controller: 'orderCtrl'});  

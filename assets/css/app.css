@@ -2475,5 +2475,133 @@ address, cite, dfn, em, var {
 	color: #333;
 }
 
+/* store css	*/
+.uc-store-list-box {
+	margin: 20px 0px;
+}
+
+.fav-item {
+	height: 226px;
+	float: left;
+	text-align: center;
+	position: relative;
+	margin-bottom: 14px;
+	overflow: hidden;
+}
+
+.g-i-item {
+	width: 150px;
+	margin-right: 23px;
+}
+
+.fav-item .img-controller-box {
+	border: #eee 1px solid;
+	margin-bottom: 11px;
+	height: 148px;
+	overflow: hidden;
+	position: relative;
+}
+
+.fav-item .img-controller-img-link {
+	width: 148px;
+	height: 148px;
+	display: block;
+	line-height: 145px;
+}
+
+.fav-item .img-controller-img {
+	vertical-align: middle;
+	display: inline-block;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.fav-item-hover .add-cat-box {
+	right: 28px;
+}
+
+.fav-item-hover .go-shop-link, .fav-item-hover .add-cat-btn {
+	background: url(/img/TB1MRKAFVXXXXb2XVXXm225FXXX-16-69.png) -9999px -9999px no-repeat;
+}
+
+.fav-item-hover .go-shop-box, .fav-item-hover .add-cat-box, .fav-item-hover .delete-box, .fav-item-hover .findsame-btn {
+	height: 25px;
+	line-height: 25px;
+	font-style: 14px;
+	position: absolute;
+	top: 0;
+	display: block;
+}
+
+.fav-item-hover .add-cat-box:hover .add-cat-bg, .fav-item-hover .go-shop-box:hover {
+	background-color: #f40;
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+
+.fav-item-hover .go-shop-box, .fav-item-hover .add-cat-box, .fav-item-hover .delete-box, .fav-item-hover .findsame-btn {
+	background-color: #000;
+	filter: alpha(opacity=50);
+	opacity: .5;
+	height: 25px;
+	width: 24px;
+}
+
+.fav-item-hover .delete-box {
+	right: 0;
+}
+
+.fav-item-hover .go-shop-link, .fav-item-hover .add-cat-btn, .fav-item-hover .delete-btn {
+	height: 25px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 24px;
+	cursor: pointer;
+	display: block;
+}
+
+.fav-item .knockdown .knockdown-picon, .fav-item-hover .delete-btn, .fav-item-hover .note-txt-icon {
+	background: url(/img/TB1URyPGXXXXXcRXFXX.2vyPVXX-41-793.png) -9999px -9999px no-repeat;
+}
+
+.fav-item-hover .delete-btn {
+	background-position: -22px -253px;
+}
+
+.fav-item .img-item-title {
+	height: 23px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.fav-item .img-item-title-link {
+	color: #3c3c3c;
+}
+
+.fav-item .knockdown, .fav-item .price-container {
+	word-wrap: break-word;
+	word-break: normal;
+	height: 23px;
+	line-height: 23px;
+	overflow: hidden;
+}
+
+.g_price-box div {
+	display: inline;
+	color: #6c6c6c;
+}
+
+.g_price span {
+	color: #f40;
+	margin-right: 0;
+}
+
+.g_price strong {
+	color: #f40;
+	font-weight: 700;
+	font-family: verdana,arial;
+}
 
 
