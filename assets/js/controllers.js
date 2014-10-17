@@ -442,7 +442,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 	.controller('orderCtrl', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;
-		$scope.isempty = true;	
+		$scope.isempty = false;	
 		$scope.maxSize = 5;
 		$scope.bigTotalItems = 1;
 		$scope.bigCurrentPage = 1;
@@ -489,7 +489,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		
 		$sails.get("/order/findAll", {index: 1}).success(function (data) {	
 			if(data == ''){
-				
+				$scope.isempty = true;
 			}else{
 				$scope.isempty = false;
 				$scope.orders = data;
@@ -962,13 +962,13 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			desc : '4.5寸 720P屏幕 4核1.2G处理器 1GRAM+4GROM 前200万摄像头 后800万摄像头，三色呼吸灯，NFC通信，安卓4.1操作系统', tag : '测试产品', keys:'手机,大锤,后800万摄像头,4.5寸,720P屏幕,C1,安卓4.1操作系统'};
 			*/
 			//add c2 mobile
-			var data = {sn : 'MB1000002', proname : '大锤 C2', classify : 'mobile',oldprice:1399, price : 1299, imgurl : '../img/product/pro_1.jpg',
+			/*var data = {sn : 'MB1000002', proname : '大锤 C2', classify : 'mobile',oldprice:1399, price : 1299, imgurl : '../img/product/pro_1.jpg',
 			pics : ['c2/1377304636_13_3296.png','c2/1377304642_81_2707.png','c2/1377304645_73_2873.png','c2/1377304653_76_6318.png','c2/1377304665_46_5265.png'],
 			producturl : '/goods/mobile', regdate : DateFormat('yyyy-MM-dd hh:mm:ss',new Date()), inventory : 100, color : '黑色', colors : ['黑色','白色'],
 			combos:{},
-			desc : '5寸 1080P屏幕 4核1.5G处理器 1GRAM+16GROM 前500万摄像头 后1300万摄像头，三色呼吸灯，NFC通信，OTG连接，安卓4.2操作系统', tag : '测试产品', keys:'手机,大锤,后1300万摄像头,5寸,1080P屏幕,C2,安卓4.2操作系统'};
+			desc : '5寸 1080P屏幕 4核1.5G处理器 1GRAM+16GROM 前500万摄像头 后1300万摄像头，三色呼吸灯，NFC通信，OTG连接，安卓4.2操作系统', tag : '测试产品', keys:'手机,大锤,后1300万摄像头,5寸,1080P屏幕,C2,安卓4.2操作系统'};*/
 			//insert product
-			$sails.post('/product/create', data).success(function (r) {
+			$sails.post('/product/autocreate').success(function (r) {
 				if(r.sts == 1){
 					alert('-----create product err------');
 				}else{

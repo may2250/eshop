@@ -41,6 +41,26 @@ function DateFormat(formatStr, date)
 	return str;   
 }
 
+function doHandleMonth(month){   
+    var m = month;        
+    if(month.toString().length == 1){   
+        m = "0" + month;       
+    }         
+    return m;  
+}  
+
+function getDay(day){        
+    var today = new Date();           
+    var targetday_milliseconds=today.getTime() + 1000*60*60*24*day;               
+    today.setTime(targetday_milliseconds); //注意，这行是关键代码             
+    var tYear = today.getFullYear();      
+    var tMonth = today.getMonth();        
+    var tDate = today.getDate();      
+    tMonth = doHandleMonth(tMonth + 1);       
+    tDate = doHandleMonth(tDate);         
+    return tYear+"-"+tMonth+"-"+tDate+" 00:00:00";  
+}  
+
 module.exports = {    
 	  
 	
@@ -101,7 +121,35 @@ module.exports = {
    */
    findAll: function (req, res) {    
     var index = req.param('index');
-    // Send a JSON response
+	//更新该用户已过期的订单
+	var datetime = DateFormat('yyyy-MM-dd hh:mm:ss',new Date());
+	var preday = getDay(-1);  
+	datetime= new Date(datetime);  
+	preday= new Date(preday);
+	Order.find({userid: req.session.userid, createdAt:{'$lt':preday}}).exec(function findCB(err,result){
+		if(err){
+			return console.log(err);
+		}		
+		//console.log('----overdueorder---->>>>>>'+JSON.stringify(result));
+		result.forEach( function(r){
+			Order.update({status:'等待付款', orderdate: r.orderdate},{status:'已关闭'}).exec(function afterwards(err,updated){
+			  if (err) {
+				console.log('----overdueorder---->>>>>>'+JSON.stringify(err));
+				return ;
+			  }
+			});
+		});
+		setTimeout(
+			Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
+				if(err){
+					console.log('----orders---->>>>>>'+JSON.stringify(err));
+					return res.json( '' );
+				}		
+				//console.log('----orders---->>>>>>'+JSON.stringify(result));
+				return res.json( result );
+			
+			}),1000);
+	});
 	//console.log('------/order/findAll----'+req.session.userid);
 	Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
 		if(err){
