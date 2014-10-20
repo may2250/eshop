@@ -139,7 +139,7 @@ module.exports = {
 			  }
 			});
 		});
-		setTimeout(
+		setTimeout(function(){
 			Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
 				if(err){
 					console.log('----orders---->>>>>>'+JSON.stringify(err));
@@ -148,16 +148,7 @@ module.exports = {
 				//console.log('----orders---->>>>>>'+JSON.stringify(result));
 				return res.json( result );
 			
-			}),1000);
-	});
-	//console.log('------/order/findAll----'+req.session.userid);
-	Order.find({ where: {userid: req.session.userid}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
-		if(err){
-			return console.log(err);
-		}		
-		console.log('----orders---->>>>>>'+JSON.stringify(result));
-		return res.json( result );
-	
+			})},500);
 	});
   },
   
@@ -188,13 +179,20 @@ module.exports = {
 
   /**
    * Action blueprints:
-   *    `/order/find`
+   *    `/order/findByStatus`
    */
-   find: function (req, res) {
+   findByStatus: function (req, res) {
+    var status = req.param('status');
+	var index = req.param('index');
     
-    // Send a JSON response
-    return res.json({
-      hello: 'world'
-    });
+	Order.find({ where: {userid: req.session.userid, status: status}, sort:'createdAt DESC'}).paginate({page: index, limit: 10}).exec(function findCB(err,result){
+		if(err){
+			console.log('----orders---->>>>>>'+JSON.stringify(err));
+			return res.json( '' );
+		}		
+		//console.log('----orders---->>>>>>'+JSON.stringify(result));
+		return res.json( result );
+	
+	});
   }
 };

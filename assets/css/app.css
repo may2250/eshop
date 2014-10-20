@@ -1522,15 +1522,19 @@ dl {
 	right: 0;
 }
 
-.uc-order-list-type a.current {
+.uc-order-list-type label.current {
 	color: #ff4a00;
+}
+
+.uc-order-list-type label:hover {
+	cursor: pointer;
 }
 
 .uc-order-list-type .sep {
 	margin: 0 15px;
 }
 
-.uc-order-list-type a {
+.uc-order-list-type label {
 	color: #333;
 }
 

@@ -447,6 +447,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		$scope.bigTotalItems = 1;
 		$scope.bigCurrentPage = 1;
 		$scope.numPages = 1;
+		$scope.selected = 1;//选中的标签
 		$sails.get('/user/checklogin').success(function (user) {
             $scope.resetLogin(user);
 			$scope.userid = user.id;
@@ -509,7 +510,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			//alert('-------' + $scope.bigCurrentPage);	
 			$sails.get("/order/findAll", {index: $scope.bigCurrentPage}).success(function (data) {	
 				if(data == ''){
-					
+					$scope.isempty = true;
 				}else{
 					$scope.isempty = false;
 					$scope.orders = data;
@@ -524,6 +525,83 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				
 			});				
 		});
+		
+		$scope.findOrder = function(flag) {
+			if(flag == ''){
+				$scope.selected = 1;
+				$sails.get("/order/findAll", {index: 1}).success(function (data) {	
+					if(data == ''){
+						$scope.isempty = true;
+					}else{
+						$scope.isempty = false;
+						$scope.orders = data;
+						//转换购物车信息到JSON格式，以便前端遍历
+						$scope.orders.forEach(function(order,i){
+							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
+						});
+						//alert('--------'+JSON.stringify(data[0].proinfo));
+					}
+				})
+				.error(function (data){
+					
+				});	
+			}else if(flag == '等待付款'){
+				$scope.selected = 2;
+				$sails.get("/order/findByStatus", {index: 1, status:flag}).success(function (data) {	
+					if(data == ''){
+						$scope.isempty = true;
+					}else{
+						$scope.isempty = false;
+						$scope.orders = data;
+						//转换购物车信息到JSON格式，以便前端遍历
+						$scope.orders.forEach(function(order,i){
+							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
+						});
+						//alert('--------'+JSON.stringify(data[0].proinfo));
+					}
+				})
+				.error(function (data){
+					
+				});
+			}else if(flag == '已关闭'){
+				$scope.selected = 4;
+				$sails.get("/order/findByStatus", {index: 1, status:flag}).success(function (data) {	
+					if(data == ''){
+						$scope.isempty = true;
+					}else{
+						$scope.isempty = false;
+						$scope.orders = data;
+						//转换购物车信息到JSON格式，以便前端遍历
+						$scope.orders.forEach(function(order,i){
+							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
+						});
+						//alert('--------'+JSON.stringify(data[0].proinfo));
+					}
+				})
+				.error(function (data){
+					
+				});
+			}
+			
+		};		
+		$scope.unpayedOrder = function() {
+			$sails.get("/order/findByStatus", {index: 1, status:'等待付款'}).success(function (data) {	
+				if(data == ''){
+					$scope.isempty = true;
+				}else{
+					$scope.isempty = false;
+					$scope.orders = data;
+					//转换购物车信息到JSON格式，以便前端遍历
+					$scope.orders.forEach(function(order,i){
+						$scope.orders[i].proinfo = JSON.parse(order.proinfo);
+					});
+					//alert('--------'+JSON.stringify(data[0].proinfo));
+				}
+			})
+			.error(function (data){
+				
+			});
+		}
 	}])
 	.controller('userinfoCtrl', ['$scope', '$sails', '$location', function($scope, $sails, $location ) {
 		/* 隐藏layout部分*/

@@ -181,13 +181,13 @@
 					<h3 class="title">我的订单</h3>
 					<div class="more">
 						<div class="uc-order-list-type">
-							<a class="current" href="">全部订单</a>
+							<label ng-class="{current: selected == 1}" ng-click="findOrder('')">全部订单</label>
 							<span class="sep">|</span>
-							<a href="">未支付订单</a>
+							<label ng-class="{current: selected == 2}" ng-click="findOrder('等待付款')">未支付订单</label>
 							<span class="sep">|</span>
-							<a href="">话费充值订单</a>
+							<label ng-class="{current: selected == 3}">话费充值订单</label>
 							<span class="sep">|</span>
-							<a href="">已关闭订单</a>
+							<label ng-class="{current: selected == 4}" ng-click="findOrder('已关闭')">已关闭订单</label>
 						</div>
 					</div>
 				</div>
