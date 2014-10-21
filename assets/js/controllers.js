@@ -3,7 +3,7 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['ui.bootstrap'])
-	.controller('LayoutController', ['$scope', '$sails', '$location',  function($scope, $sails, $location ) {
+	.controller('LayoutController', ['$scope', '$sails', '$location', '$rootScope',  function($scope, $sails, $location, $rootScope ) {
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;
 		$scope.title = "橘子网";
@@ -25,7 +25,6 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 					alert('checklogin, we got a problem!');
 			});
 		}
-
 		$scope.resetLogin = function (user) {
             if (user.name) {	
                 $scope.logIn = {
@@ -723,22 +722,14 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		$scope.register = function () {
 			var username = $scope.username;
 			var password = $scope.password;
-			$sails.post("/user/create", {username: username,password: password}).success(function (user) {
-						//alert('---user---'+user.username);
-						localStorage.setItem("username",username);
-						localStorage.setItem("password","");
-						localStorage.setItem("remember",false);
-						$location.path('/login');
-					})
-					.error(function (data) {
-						alert('Houston, we got a problem!');
-					});
+			
 			$sails.get("/user/findOne", {username: username}).success(function (user) {
-				if(user != null){
+				//alert('---user---'+JSON.stringify(user));
+				if(user != ''){
 					alert('User has exist!');
 					
 				}else{
-					$sails.post("/user/create", {username: username,password: password}).success(function (user) {
+					$sails.post("/user/create", {username: username,password: password, roles: ['ROLE_USER']}).success(function (user) {
 						//alert('---user---'+user.username);
 						localStorage.setItem("username",username);
 						localStorage.setItem("password","");

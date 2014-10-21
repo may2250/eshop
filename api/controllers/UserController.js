@@ -22,10 +22,12 @@ module.exports = {
     var name = req.param('username');
 	var password = req.param('password');
 	var enpass = encryptPassword(password);
+	var roles = req.param('roles');
 	//console.log('--------name:'+name);
 	User.create({
 		   username: name,
-		   password: enpass
+		   password: enpass,
+		   roles: roles
 		}).exec(function createCB(err, user) {
 			if(err){
 				console.log('--create----error----'+JSON.stringify(err));
@@ -129,11 +131,17 @@ module.exports = {
     var name = req.param('username');			
 	User.findOne({username: name}).exec(function findOneCB(err, user){
 		if (err) {
-			return console.log(err);
+			console.log('--find-user----'+JSON.stringify(err));
+			return res.json('');
 		  // Found multiple users!
 		} else {
 			//console.log('--find----password----'+JSON.stringify(user));
-			return res.json(user);
+			if(user){
+				return res.json(user);
+			}else{
+				return res.json('');
+			}
+			
 		}
 		
 	});
