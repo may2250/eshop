@@ -1,14 +1,14 @@
 <div class="side-header container">
 	<div class="site-logo">
-		<a class="logo" href="/#/index" title="大橘子官网" >
+		<a class="logo" href="/#/index" title= "{{'TITLE' | translate }}">
 			<img src="/img/logo.jpg" />
 		</a>
 	</div>
 	<div class="header-info">
 		<div class="search-section">
 			<form id="J_searchForm" class="search-form clearfix" ng-submit="search()" method="get">
-                <input class="search-text" type="search" name="keyword" autocomplete="off" ng-model="search_key" placeholder="搜索您需要的商品">
-                <input type="submit" class="search-btn" value="搜索" />
+                <input class="search-text" type="search" name="keyword" autocomplete="off" ng-model="search_key" placeholder=  "{{'SEARCH_NEEDED' | translate }}" >
+                <input type="submit" class="search-btn" value= "{{'SEARCH' | translate }}"  />
                 <!--[if IE 6]><div class="ie6-fix"></div><![endif]-->
 				<div id="J_keywordList" class="keyword-list" style="opacity: 0;">
 					<ul class="result-list">
@@ -21,7 +21,7 @@
 			</form>
 		</div>
 		<div class="cart-section">
-			<a id="J_miniCart" class="mini-cart" href="/#/cart" onclick=""><img src="/img/cart.ico" />   购物车<span class="j_cartnum">({{count}})</span></a>
+			<a id="J_miniCart" class="mini-cart" href="/#/cart" onclick=""><img src="/img/cart.ico" />   {{ 'CART' | translate }}<span class="j_cartnum">({{count}})</span></a>
 			<div id="J_miniCartList" class="mini-cart-list" style="display: none;">
 				<p class="loading">数据加载中，请稍后...</p>
 			</div>
@@ -29,61 +29,61 @@
 	</div>	
 	<div class="header-nav clearfix">
 		<div id="J_categoryContainer" class="nav-category nav-category-toggled">
-			<a class="btn-category-list" href="">全部商品分类<i class="category_arrow"></i></a>
+			<a class="btn-category-list" href="">{{ 'GOODS_CLASSFY' | translate }}<i class="category_arrow"></i></a>
 			<div class="nav-category-section">
 				<ul class="nav-category-list">
 					<li class="nav-category-item nav-category-item-first">
 						<div class="nav-category-content" >
-							<a class="title" href="#">购买产品A</a>
+							<a class="title" href="#">{{ 'BUY_GOODS' | translate }}A</a>
 							<div class="links">
-								<a href="#" >商品A</a>
-								<a href="#" >商品B</a>
-								<a href="#" >商品C</a>
-								<a href="#" >商品D</a>
+								<a href="#" >{{ 'GOODS' | translate }}A</a>
+								<a href="#" >{{ 'GOODS' | translate }}B</a>
+								<a href="#" >{{ 'GOODS' | translate }}C</a>
+								<a href="#" >{{ 'GOODS' | translate }}D</a>
 							</div>
 						</div>
 					</li>
 					<li class="nav-category-item">
 						<div class="nav-category-content" >
-							<a class="title" href="#">购买产品B</a>
+							<a class="title" href="#">{{ 'BUY_GOODS' | translate }}B</a>
 							<div class="links">
-								<a href="#" >商品A</a>
-								<a href="#" >商品B</a>
-								<a href="#" >商品C</a>
-								<a href="#" >商品D</a>
+								<a href="#" >{{ 'GOODS' | translate }}A</a>
+								<a href="#" >{{ 'GOODS' | translate }}B</a>
+								<a href="#" >{{ 'GOODS' | translate }}C</a>
+								<a href="#" >{{ 'GOODS' | translate }}D</a>
 							</div>
 						</div>
 					</li>
 					<li class="nav-category-item">
 						<div class="nav-category-content" >
-							<a class="title" href="#">购买产品C</a>
+							<a class="title" href="#">{{ 'BUY_GOODS' | translate }}C</a>
 							<div class="links">
-								<a href="#" >商品A</a>
-								<a href="#" >商品B</a>
-								<a href="#" >商品C</a>
-								<a href="#" >商品D</a>
+								<a href="#" >{{ 'GOODS' | translate }}A</a>
+								<a href="#" >{{ 'GOODS' | translate }}B</a>
+								<a href="#" >{{ 'GOODS' | translate }}C</a>
+								<a href="#" >{{ 'GOODS' | translate }}D</a>
 							</div>
 						</div>
 					</li>
 					<li class="nav-category-item">
 						<div class="nav-category-content" >
-							<a class="title" href="#">购买产品D</a>
+							<a class="title" href="#">{{ 'BUY_GOODS' | translate }}D</a>
 							<div class="links">
-								<a href="#" >商品A</a>
-								<a href="#" >商品B</a>
-								<a href="#" >商品C</a>
-								<a href="#" >商品D</a>
+								<a href="#" >{{ 'GOODS' | translate }}A</a>
+								<a href="#" >{{ 'GOODS' | translate }}B</a>
+								<a href="#" >{{ 'GOODS' | translate }}C</a>
+								<a href="#" >{{ 'GOODS' | translate }}D</a>
 							</div>
 						</div>
 					</li>
 					<li class="nav-category-item">
 						<div class="nav-category-content" >
-							<a class="title" href="#">购买产品E</a>
+							<a class="title" href="#">{{ 'BUY_GOODS' | translate }}E</a>
 							<div class="links">
-								<a href="#" >商品A</a>
-								<a href="#" >商品B</a>
-								<a href="#" >商品C</a>
-								<a href="#" >商品D</a>
+								<a href="#" >{{ 'GOODS' | translate }}A</a>
+								<a href="#" >{{ 'GOODS' | translate }}B</a>
+								<a href="#" >{{ 'GOODS' | translate }}C</a>
+								<a href="#" >{{ 'GOODS' | translate }}D</a>
 							</div>
 						</div>
 					</li>
@@ -93,11 +93,11 @@
 		<div class="nav-main">
 			<ul class="nav-main-list J_menuNavMain clearfix">
 				<li class="nav-main-item">
-                    <a href="#"><span class="text">首页</span></a>
+                    <a href="#"><span class="text">{{ 'HOME' | translate }}</span></a>
                 </li>
 				<li class="nav-main-item">
                     <a href="#">
-						<span class="text">锤子系列</span>
+						<span class="text">{{ 'CHUIZI_S' | translate }}</span>
 						<span class="arrow"></span>
 					</a>
 					<div class="nav-main-children">
@@ -105,10 +105,10 @@
                             <li class="first">
                                 <a class="item-detail" href="#/pro_a" >   
 									<div class="pro-A">
-										<h3>大锤子C1</h3>
-										<p>1.2G四核NFC普及版</p>
-										<p>1280*720分辨率</p>
-										<p>899元起</p>
+										<h3>{{ 'BIGCHUI1' | translate }}</h3>
+										<p>{{ 'BIGCHUI1_TIP' | translate }}</p>
+										<p>1280*720{{ 'RESOLUTION' | translate }}</p>
+										<p>899{{ 'YQ' | translate }}</p>
 									</div>
                                     <span class="thumb">									
 										<img src="/img/product/pro_1.jpg" width="160" height="160">										                                     
@@ -119,10 +119,10 @@
                             <li>
                                 <a class="item-detail" href="#/pro_b" >  
 									<div class="pro-A">
-										<h3>大锤子C2</h3>
-										<p>1.5G四核NFC旗舰版</p>
-										<p>1920*1080分辨率</p>
-										<p>1399元起</p>
+										<h3>{{ 'BIGCHUI2' | translate }}</h3>
+										<p>{{ 'BIGCHUI2_TIP' | translate }}</p>
+										<p>1920*1080{{ 'RESOLUTION' | translate }}</p>
+										<p>1399{{ 'YQ' | translate }}</p>
 									</div>
                                     <span class="thumb">
                                         <img src="/img/product/pro_1.jpg" width="160" height="160">
@@ -134,10 +134,10 @@
                     </div>
                 </li>
 				<li class="nav-main-item">
-                    <a href="#/goods/mitv"><span class="text">小米电视</span></a>
+                    <a href="#/goods/mitv"><span class="text">{{ 'MI_TV' | translate }}</span></a>
                 </li>
 				<li class="nav-main-item">
-                    <a href="#"><span class="text">商品C</span></a>
+                    <a href="#"><span class="text">{{ 'GOODS' | translate }}C</span></a>
                 </li>
 			</ul>
 		</div>
@@ -148,29 +148,29 @@
 		<div class="span4">
 			<div class="uc-nav-box">
 				<div class="box-hd">
-					<h3 class="title">个人中心</h3>
+					<h3 class="title">{{ 'PERSONAL_CENTER' | translate }}</h3>
 				</div>
 				<div class="box-bd">
 					<ul class="uc-nav-list">
-						<li><a href="#/userinfo?id={{userid}}">我的个人中心</a></li>
-						<li class="current"><a href="#/order?id={{userid}}">我的订单</a></li>
-						<li><a href="#">我的付费服务</a></li>
-						<li><a href="#">我的现金账户</a></li>
-						<li><a href="#">商品评价</a></li>
-						<li><a href="#/store">我的收藏</a></li>
-						<li><a href="#">我的优惠券</a></li>
+						<li><a href="#/userinfo?id={{userid}}">{{ 'MY_CENTER' | translate }}</a></li>
+						<li class="current"><a href="#/order?id={{userid}}">{{ 'MY_ORDER' | translate }}</a></li>
+						<li><a href="#">{{ 'MY_PAY' | translate }}</a></li>
+						<li><a href="#">{{ 'MY_ACCOUNT' | translate }}</a></li>
+						<li><a href="#">{{ 'COMMENTS' | translate }}</a></li>
+						<li><a href="#/store">{{ 'MY_FAVORITE' | translate }}</a></li>
+						<li><a href="#">{{ 'MY_COUPONS' | translate }}</a></li>
 					</ul>
 				</div>
 			</div>
 			<div class="uc-nav-box">
 				<div class="box-hd">
-					<h3 class="title">账户管理</h3>
+					<h3 class="title">{{ 'ACCOUNT_MANAGEMENT' | translate }}</h3>
 				</div>
 				<div class="box-bd">
 					<ul class="uc-nav-list">
-						<li><a href="#/user/address?id={{userid}}">收货地址管理</a></li>
-						<li><a href="#/changeP?id={{userid}}">修改密码</a></li>
-						<li><a href="#">VIP认证</a></li>
+						<li><a href="#/user/address?id={{userid}}">{{ 'SHIPPING_ADDRESS' | translate }}</a></li>
+						<li><a href="#/changeP?id={{userid}}">{{ 'MODIFY_PASSWORD' | translate }}</a></li>
+						<li><a href="#">{{ 'VIP' | translate }}</a></li>
 					</ul>
 				</div>
 			</div>
@@ -178,23 +178,23 @@
 		<div class="span16">
 			<div class="xm-line-box uc-box">
 				<div class="box-hd">
-					<h3 class="title">我的订单</h3>
+					<h3 class="title">{{ 'MY_ORDER' | translate }}</h3>
 					<div class="more">
 						<div class="uc-order-list-type">
-							<label ng-class="{current: selected == 1}" ng-click="findOrder('')">全部订单</label>
+							<label ng-class="{current: selected == 1}" ng-click="findOrder('')">{{ 'ALL_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
-							<label ng-class="{current: selected == 2}" ng-click="findOrder('等待付款')">未支付订单</label>
+							<label ng-class="{current: selected == 2}" ng-click="findOrder('等待付款')">{{ 'WAIT_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
-							<label ng-class="{current: selected == 3}">话费充值订单</label>
+							<label ng-class="{current: selected == 3}">{{ 'TELEPHONE_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
-							<label ng-class="{current: selected == 4}" ng-click="findOrder('已关闭')">已关闭订单</label>
+							<label ng-class="{current: selected == 4}" ng-click="findOrder('已关闭')">{{ 'CLOSED_ORDERS' | translate }}</label>
 						</div>
 					</div>
 				</div>
 				<div class="box-bd">
 					<div class="uc-order-list-box">
 						<ul class="uc-order-detail-list">
-							<li class="uc-order-detail-item empty" ng-show="isempty">您目前还没有交易订单。</li>
+							<li class="uc-order-detail-item empty" ng-show="isempty">{{ 'ORDER_EMPTY' | translate }}</li>
 							<order-list ng-show="!isempty"/>
 						</ul>
 					</div>

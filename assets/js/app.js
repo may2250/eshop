@@ -8,12 +8,21 @@ var app = angular.module('myApp', [
   'myApp.filters',
   'myApp.services',
   'myApp.directives',
-  'myApp.controllers'
+  'myApp.controllers',
+  'pascalprecht.translate'
 ])
  .config(['$sailsProvider', function ($sailsProvider) {
 	    $sailsProvider.url = 'http://localhost:1337';
 		
 }]) 
+  .config(function($translateProvider) {
+		// Our translations will go in here
+		$translateProvider.useStaticFilesLoader({
+		  prefix: '/locales/',
+		  suffix: '.json'
+		});
+		$translateProvider.preferredLanguage('cn');
+  })
  .config(['$routeProvider', function($routeProvider) {
 	app.resolveScriptDeps = function(dependencies){
 		return function($q,$rootScope){

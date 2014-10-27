@@ -3,16 +3,11 @@
 /* Controllers */
 
 angular.module('myApp.controllers', ['ui.bootstrap'])
+	
 	.controller('LayoutController', ['$scope', '$sails', '$location', '$rootScope',  function($scope, $sails, $location, $rootScope ) {
 		/* 显示layout部分*/
 		$scope.$parent.j_islogin = true;
-		$scope.title = "橘子网";
-/* 		$scope.sinup = "注册";
-		$scope.logIn = "登录"; */
-		$scope.orders = "我的订单";
-		$scope.mobile = "橘子网移动版";
-		$scope.bbs = "橘子网论坛";
-		$scope.about = "关于橘子";
+
 		//搜索关键字
 		$scope.search_key = "";
 		if($scope.userid == '' || $scope.userid == undefined){
@@ -29,20 +24,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
             if (user.name) {	
                 $scope.logIn = {
                     url:'userinfo?id='+user.id,
-                    name:'欢迎:' + user.name
+                    name: "{{ 'WELCOME' | translate}}" + user.name
                 };
                 $scope.signup = {
                     url:'logout',
-                    name:'注销'
+                    name:'LOGOUT'
                 };
             } else {
                 $scope.logIn = {
                     url:'login',
-                    name:'登录'
+                    name: 'LOGIN'
                 };
                 $scope.signup = {
                     url:'signup',
-                    name:'注册'
+                    name:'SIGNUP'
                 };
             }
         };

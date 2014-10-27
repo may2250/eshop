@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{title}}</title>
+  <title>{{ 'TITLE' | translate }}</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
@@ -19,20 +19,20 @@
 	<div class="site-topbar">
 		<div class="container">
 			<div class="topbar-nav">
-				<a href="#/index" target="_blank" ng-click="" >{{title}}</a>
+				<a href="#/index" target="_blank" ng-click="" >{{ 'TITLE' | translate }}</a>
 				<span class="sep">|</span>
-				<a href="#/order?id={{userid}}" ng-click="" >{{ orders }}</a>
+				<a href="#/order?id={{userid}}" ng-click="" >{{ 'MY_ORDER' | translate }}</a>
 				<span class="sep">|</span>
-				<a href="#" target="_blank" ng-click="" >{{ mobile }}</a>
+				<a href="#" target="_blank" ng-click="" >{{ 'MOBILE_V' | translate }}</a>
 				<span class="sep">|</span>
-				<a href="#" target="_blank" ng-click="" >{{ bbs }}</a>
+				<a href="#" target="_blank" ng-click="" >{{ 'BBS' | translate }}</a>
 				<span class="sep">|</span>
-				<a href="#/about" target="_blank" ng-click="" >{{ about }}</a>
+				<a href="#/about" target="_blank" ng-click="" >{{ 'ABOUT' | translate }}</a>
 			</div>
 			<div class="topbar-info">
-				<a href="#/{{logIn.url}}" ng-click="" >{{ logIn.name }}</a>
+				<a href="#/{{logIn.url}}" ng-click="" >{{ logIn.name | translate}}</a>
 				<span class="sep">|</span>
-				<a href="#/{{signup.url}}" ng-click="" >{{ signup.name }}</a>
+				<a href="#/{{signup.url}}" ng-click="" >{{ signup.name | translate}}</a>
 			</div>
 		</div>
 	</div>
@@ -55,63 +55,63 @@
 					<li>
 						<a rel="nofollow" href="#" target="_blank" >
 							<img src="img/wrench_plus.ico" >
-							<strong>1小时快修服务</strong>
+							<strong>{{ 'ONE_HOUR_FIX' | translate }}</strong>
 						</a>
 					</li>
 					<li>
 						<a rel="nofollow" href="#" target="_blank" >
 							<img src="img/wall_clock.ico" >
-							<strong>7天无理由退货</strong>
+							<strong>{{ 'SEVEN_DAY_BACK' | translate }}</strong>
 						</a>
 					</li>
 					<li>
 						<a rel="nofollow" href="#" target="_blank" >
 							<img src="img/refresh (1).ico" >
-							<strong>15天免费换货</strong>
+							<strong>{{ 'FIFTEEN_DAY_EXCHANGE' | translate }}</strong>
 						</a>
 					</li>
 					<li>
 						<a rel="nofollow" href="#" target="_blank" >
 							<img src="img/gift.ico" >
-							<strong>满150包邮</strong>
+							<strong>{{ 'PINKAGE' | translate }}</strong>
 						</a>
 					</li>
 					<li>
 						<a rel="nofollow" href="#" target="_blank" >
 							<img src="img/site_map.ico" >
-							<strong>0家售后网点</strong>
+							<strong>{{ 'AFTER_SAILES' | translate }}</strong>
 						</a>
 					</li>
 				</ul>
 			</div>
 			<div class="footer-links clearfix">
 				<dl class="col-links col-links-first">
-					<dt>帮助中心</dt>					
-					<dd><a rel="nofollow" href="#" target="_blank" >购物指南</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >支付方式</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >配送方式</a></dd>					
+					<dt>{{ 'HELP_CENTER' | translate }}</dt>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'SHOPPING_GUIDE' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'PAY_WAY' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'DELIVERY_WAY' | translate }}</a></dd>					
 				</dl>
 				<dl class="col-links">
-					<dt>服务支持</dt>					
-					<dd><a rel="nofollow" href="#" target="_blank" >售后政策</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >自助服务</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >相关下载</a></dd>					
+					<dt>{{ 'SERVICE_SUPPORT' | translate }}</dt>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'AFTER_SAILES_POLICY' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'SELF_SERVICES' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'RELATED_DOWNLOAD' | translate }}</a></dd>					
 				</dl>
 				<dl class="col-links">
-					<dt>橘子之家</dt>					
-					<dd><a rel="nofollow" href="#" target="_blank" >橘子小窝</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >服务网点</a></dd>					
-					<dd><a rel="nofollow" href="#" target="_blank" >预约到店服务</a></dd>					
+					<dt>{{ 'FRUIT_HOME' | translate }}</dt>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'FRUIT_HOME2' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'SERVICE_NET' | translate }}</a></dd>					
+					<dd><a rel="nofollow" href="#" target="_blank" >{{ 'APPOINTMENT_TO_STORE' | translate }}</a></dd>					
 				</dl>
 				<div class="col-contact">
 					<p class="phone">400-100-5678</p>
-					<p>周一至周日 8:00-17:00<br>（仅收市话费）</p>
-					<a rel="nofollow" class="btn btn-primary btn-small" href="#" target="_blank" >24小时在线客服</a> 
+					<p>{{ 'PHONE_SUPPORT' | translate }}</p>
+					<a rel="nofollow" class="btn btn-primary btn-small" href="#" target="_blank" >{{ 'ONLINE_SERVICES' | translate }}</a> 
 				</div>
 			</div>
 			<div class="footer-info clearfix">
 				<div class="info-text">
-					<p>此网站目前正在测试阶段，如发现问题请与管理人员联系，联系方式：QQ：666666666</p>
+					<p>{{ 'FOOTER_INFO' | translate }}：QQ：666666666</p>
 				</div>
 			</div>
 		</div>
@@ -131,6 +131,8 @@
   <script src="bower_components/angular-sails/dist/angular-sails.js"></script>
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
   <script src="bower_components/jquery/ui-bootstrap-tpls-0.11.0.min.js"></script>
+  <script src="bower_components/angular-translate/dist/angular-translate.min.js"></script>
+  <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.min.js"></script>
   
   <script src="js/app.js"></script>
   <script src="js/services.js"></script>
