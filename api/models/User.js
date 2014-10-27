@@ -9,6 +9,8 @@
 module.exports = {
 
   attributes: {
+	provider: 'string',
+    uid: 'string',
     username: {
 		type:'string',
 		unique: true,

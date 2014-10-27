@@ -706,6 +706,15 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				alert('Login, we got a problem!');
 			});
 		};
+		
+		$scope.sign_github = function() {
+			$sails.get("/auth/github").success(function (data) {
+				alert('----data---'+JSON.stringify(data));
+			})
+			.error(function (data) {
+				alert('Houston, we got a problem!');
+			});
+		};
 	}])
 	.controller('logoutCtrl', ['$scope', '$sails', '$location', function( $scope, $sails, $location) {		
 		$sails.get("/user/logout").success(function (data) {
