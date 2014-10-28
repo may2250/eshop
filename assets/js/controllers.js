@@ -490,6 +490,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				$scope.orders = data;
 				//转换购物车信息到JSON格式，以便前端遍历
 				$scope.orders.forEach(function(order,i){
+					switch($scope.orders[i].status){
+						case 0: 
+							$scope.orders[i].status = 'PAYED_ORDER';
+							break;
+						case 1:
+							$scope.orders[i].status = 'UNPAYED_ORDER';
+							break;
+						case 2: 
+							$scope.orders[i].status = 'CLOSED_ORDER';
+							break;
+						default:
+							$scope.orders[i].status = 'CLOSED_ORDER';
+							break;
+					}
 					$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 				});
 				//alert('--------'+JSON.stringify(data[0].proinfo));
@@ -510,6 +524,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 					$scope.orders = data;
 					//转换购物车信息到JSON格式，以便前端遍历
 					$scope.orders.forEach(function(order,i){
+						switch($scope.orders[i].status){
+							case 0: 
+								$scope.orders[i].status = 'PAYED_ORDER';
+								break;
+							case 1:
+								$scope.orders[i].status = 'UNPAYED_ORDER';
+								break;
+							case 2: 
+								$scope.orders[i].status = 'CLOSED_ORDER';
+								break;
+							default:
+								$scope.orders[i].status = 'CLOSED_ORDER';
+								break;
+						}
 						$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 					});
 					//alert('--------'+JSON.stringify(data[0].proinfo));
@@ -521,7 +549,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 		});
 		
 		$scope.findOrder = function(flag) {
-			if(flag == ''){
+			if(flag == 0){
 				$scope.selected = 1;
 				$sails.get("/order/findAll", {index: 1}).success(function (data) {	
 					if(data == ''){
@@ -531,6 +559,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 						$scope.orders = data;
 						//转换购物车信息到JSON格式，以便前端遍历
 						$scope.orders.forEach(function(order,i){
+							switch($scope.orders[i].status){
+								case 0: 
+									$scope.orders[i].status = 'PAYED_ORDER';
+									break;
+								case 1:
+									$scope.orders[i].status = 'UNPAYED_ORDER';
+									break;
+								case 2: 
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+								default:
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+							}
 							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 						});
 						//alert('--------'+JSON.stringify(data[0].proinfo));
@@ -539,9 +581,9 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				.error(function (data){
 					
 				});	
-			}else if(flag == '等待付款'){
+			}else if(flag == 1){
 				$scope.selected = 2;
-				$sails.get("/order/findByStatus", {index: 1, status:flag}).success(function (data) {	
+				$sails.get("/order/findByStatus", {index: 1, status:1}).success(function (data) {	
 					if(data == ''){
 						$scope.isempty = true;
 					}else{
@@ -549,6 +591,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 						$scope.orders = data;
 						//转换购物车信息到JSON格式，以便前端遍历
 						$scope.orders.forEach(function(order,i){
+							switch($scope.orders[i].status){
+								case 0: 
+									$scope.orders[i].status = 'PAYED_ORDER';
+									break;
+								case 1:
+									$scope.orders[i].status = 'UNPAYED_ORDER';
+									break;
+								case 2: 
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+								default:
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+							}
 							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 						});
 						//alert('--------'+JSON.stringify(data[0].proinfo));
@@ -557,7 +613,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 				.error(function (data){
 					
 				});
-			}else if(flag == '已关闭'){
+			}else if(flag == 2){
 				$scope.selected = 4;
 				$sails.get("/order/findByStatus", {index: 1, status:flag}).success(function (data) {	
 					if(data == ''){
@@ -567,6 +623,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 						$scope.orders = data;
 						//转换购物车信息到JSON格式，以便前端遍历
 						$scope.orders.forEach(function(order,i){
+							switch($scope.orders[i].status){
+								case 0: 
+									$scope.orders[i].status = 'PAYED_ORDER';
+									break;
+								case 1:
+									$scope.orders[i].status = 'UNPAYED_ORDER';
+									break;
+								case 2: 
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+								default:
+									$scope.orders[i].status = 'CLOSED_ORDER';
+									break;
+							}
 							$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 						});
 						//alert('--------'+JSON.stringify(data[0].proinfo));
@@ -579,7 +649,7 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 			
 		};		
 		$scope.unpayedOrder = function() {
-			$sails.get("/order/findByStatus", {index: 1, status:'等待付款'}).success(function (data) {	
+			$sails.get("/order/findByStatus", {index: 1, status:1}).success(function (data) {	
 				if(data == ''){
 					$scope.isempty = true;
 				}else{
@@ -587,6 +657,20 @@ angular.module('myApp.controllers', ['ui.bootstrap'])
 					$scope.orders = data;
 					//转换购物车信息到JSON格式，以便前端遍历
 					$scope.orders.forEach(function(order,i){
+						switch($scope.orders[i].status){
+							case 0: 
+								$scope.orders[i].status = 'PAYED_ORDER';
+								break;
+							case 1:
+								$scope.orders[i].status = 'UNPAYED_ORDER';
+								break;
+							case 2: 
+								$scope.orders[i].status = 'CLOSED_ORDER';
+								break;
+							default:
+								$scope.orders[i].status = 'CLOSED_ORDER';
+								break;
+						}
 						$scope.orders[i].proinfo = JSON.parse(order.proinfo);
 					});
 					//alert('--------'+JSON.stringify(data[0].proinfo));

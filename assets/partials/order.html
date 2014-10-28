@@ -181,13 +181,13 @@
 					<h3 class="title">{{ 'MY_ORDER' | translate }}</h3>
 					<div class="more">
 						<div class="uc-order-list-type">
-							<label ng-class="{current: selected == 1}" ng-click="findOrder('')">{{ 'ALL_ORDERS' | translate }}</label>
+							<label ng-class="{current: selected == 1}" ng-click="findOrder(0)">{{ 'ALL_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
-							<label ng-class="{current: selected == 2}" ng-click="findOrder('等待付款')">{{ 'WAIT_ORDERS' | translate }}</label>
+							<label ng-class="{current: selected == 2}" ng-click="findOrder(1)">{{ 'WAIT_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
 							<label ng-class="{current: selected == 3}">{{ 'TELEPHONE_ORDERS' | translate }}</label>
 							<span class="sep">|</span>
-							<label ng-class="{current: selected == 4}" ng-click="findOrder('已关闭')">{{ 'CLOSED_ORDERS' | translate }}</label>
+							<label ng-class="{current: selected == 4}" ng-click="findOrder(2)">{{ 'CLOSED_ORDERS' | translate }}</label>
 						</div>
 					</div>
 				</div>

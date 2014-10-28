@@ -14,8 +14,8 @@ module.exports = {
 		autoIncrement: true
 	},
 	status: {
-		type: 'string',
-		enum: ['等待付款', '已付款', '已关闭']
+		type: 'integer',
+		enum: [0, 1, 2] //0:已付款;1：等待付款;2:已关闭
 	},
 	orderdate:{
 		type:'string',

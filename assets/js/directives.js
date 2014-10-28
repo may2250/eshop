@@ -24,8 +24,8 @@ angular.module('myApp.directives', []).
 					'<p class="tel itemTel">{{addr.tel}}</p>' +
 					'<p class="itemRegion">{{addr.province}} {{addr.city}} {{addr.county}}</p>' +
 					'<p class="itemStreet">{{addr.street}} ({{addr.zipcode}})</p>' +
-					'<a class="edit-btn J_editAddr" ng-click="editAddr(addr.id)">编辑</a>' +
-					'<a class="edit-btn J_delAddr" ng-click="delAddr(addr.id)">删除</a>' +
+					'<a class="edit-btn J_editAddr" ng-click="editAddr(addr.id)"> {{ "EDIT" | translate }}</a>' +
+					'<a class="edit-btn J_delAddr" ng-click="delAddr(addr.id)"> {{ "DELETE" | translate }}</a>' +
 				'</dd>' +
 			'</dl>' +
 		'</div>',
@@ -46,8 +46,8 @@ angular.module('myApp.directives', []).
 						'<tr>'+
 							'<th class="column-info column-t" colspan="3" >'+
 								'<div class="column-content">'+
-									'<span class="order-status">{{order.status}}</span>'+
-									'                                                                                                                 订单号:   <a href="">{{order.id}}</a>'+
+									'<span class="order-status">{{ order.status | translate }}</span>'+
+									'                                                                                                                 {{ "ORDER_SN" | translate }}:   <a href="">{{order.id}}</a>'+
 									'<span class="sep">|</span>'+
 									'{{order.addrname}}<span class="sep">|</span>{{order.orderdate}}'+
 								'</div>'+
@@ -61,20 +61,20 @@ angular.module('myApp.directives', []).
                                     '<li ng-repeat="pf in order.proinfo" ng-class="{first: $first}">'+
                                         '<a target="_blank" href="{{pf.producturl}}"><img class="goods-thumb" src={{pf.imgurl}} srcset="></a>'+
                                         '<a target="_blank" href="{{pf.producturl}}" class="goods-name">{{pf.proname}} {{pf.color}}</a>'+
-                                        '<span class="goods-price">{{pf.price}} * {{pf.count}}元</span>'+
+                                        '<span class="goods-price">{{pf.price}} * {{pf.count}}{{ "YUAN" | translate }}</span>'+
                                         '<span class="goods-link"></span>'+                                                               
 									'</li>'+
                                 '</ul>'+
 							'</td>'+
 							'<td class="column-price">'+
                                 '<div class="order-price">'+
-                                    '{{order.price}}元<br>在线支付  '+
+                                    '{{order.price}}{{ "YUAN" | translate }}<br>{{ "OLINE_PAYMENT" | translate }}  '+
                                 '</div>'+
                             '</td>'+
 							'<td class="column-action column-r">'+
                                 '<div class="order-action">'+
-                                    '<a href="">订单详情&gt&gt</a>'+
-                                    '<a class="btn btn-primary btn-small" href="" target="_blank">立即支付</a>'+                                            
+                                    '<a href="">{{ "ORDER_DETAIL" | translate }}&gt&gt</a>'+
+                                    '<a class="btn btn-primary btn-small" href="" target="_blank">{{ "IME_PAY" | translate }}</a>'+                                            
                                 '</div>'+
                             '</td>'+
 						'</tr>'+

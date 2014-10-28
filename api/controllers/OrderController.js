@@ -73,7 +73,7 @@ module.exports = {
 	var payway = req.param('payway');
 	var cartinfo = JSON.stringify(req.param('cartinfo'));
 	var pricetotal = req.param('pricetotal');
-	var status = '等待付款';
+	var status = 1;
 	var orderdate = DateFormat('yyyy-MM-dd hh:mm:ss',new Date());
 	console.log('--orderdate---'+ orderdate);
 	Address.find({id: addrid}).exec(function findCB(err,addr){

@@ -65,6 +65,9 @@
 	"TELEPHONE_ORDERS": "话费充值订单",			
 	"CLOSED_ORDERS": "已关闭订单",
 	"ORDER_EMPTY": "您目前还没有交易订单。",
+	"UNPAYED_ORDER": "等待付款",			
+	"PAYED_ORDER": "已付款",
+	"CLOSED_ORDER": "已关闭",
 	
 	"ABOUT_YG": "关于小野果",
 	"YG_INTRO": "公司简介",
@@ -128,6 +131,9 @@
 	"NEED_TOTAL_PAY": "应付总额：",
 	"BACK_CART": "返回购物车",
 	"IME_ORDER": "立即下单",
+	"IME_PAY": "立即支付",
+	"ORDER_DETAIL": "订单详情",
+	"ORDER_SN": "订单号",
 	
 	"CONFIRM_SUCCESS": "您的订单已提交成功！付款咯～",
 	"SUCCESS_TIP": "成功付款后，7个工作日内将为您发货",
