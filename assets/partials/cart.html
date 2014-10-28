@@ -1,6 +1,6 @@
 <div class="side-header site-mini-header container">
 	<div class="site-logo">
-		<a class="logo" href="/#/index" title="大橘子官网" >
+		<a class="logo" href="/#/index" title="{{'TITLE' | translate }}" >
 			<img src="/img/logo.jpg" />
 		</a>
 	</div>	
@@ -8,25 +8,25 @@
 <div class="container">
 	<div class="shop-cart-box" >
 		<div class="shop-cart-box-hd">
-            <h2 class="title">我的购物车</h2>
+            <h2 class="title">{{'MY_CART' | translate }}</h2>
 				<p class="tip">
-					在线支付全场满¥150免运费
+					{{'CART_TIPS' | translate }}
 				</p>
 		</div>
 	</div>
 	<div class="shop-cart-box-bd" >
 		<div class="shop-cart-empty" ng-show="iscartempty">
-			<h2>你的购物车还是空的赶紧行动吧！</h2>
-			<a href="" class="btn btn-primary">马上去购物 <i class="icon-common icon-common-nextRound"></i>
+			<h2>{{'CART_EMPTY' | translate }}</h2>
+			<a href="" class="btn btn-primary">{{'TOBUY' | translate }} <i class="icon-common icon-common-nextRound"></i>
 			</a>
 		</div>
 		<dl class="shop-cart-goods"  ng-show="!iscartempty">
 			<dt class="clearfix">
-                <span class="col col-1">商品</span>
-                <span class="col col-2">单价</span>
-                <span class="col col-3">数量</span>
-                <span class="col col-4">小计</span>
-                <span class="col col-5">操作</span>
+                <span class="col col-1">{{'GOODS' | translate }}</span>
+                <span class="col col-2">{{'UNIT_PRICE' | translate }}</span>
+                <span class="col col-3">{{'COUNT' | translate }}</span>
+                <span class="col col-4">{{'SUBTOTAL' | translate }}</span>
+                <span class="col col-5">{{'OPERATE' | translate }}</span>
             </dt>
 			<dd class="item  clearfix J_proItem" ng-repeat="cart in carts">
 				<div class="item-row">
@@ -41,7 +41,7 @@
 								</a>
 							</div>
 							<p class="g-type">
-								<span>适配机型：</span>
+								<span>{{'APPLICATION' | translate }}</span>
 								<span>{{cart.tag}}</span>
 							</p>
 							<p class="g-other-info">
@@ -50,7 +50,7 @@
 						</div>
 					</div>
 					<div class="col col-2">
-                        {{cart.price}}元
+                        {{cart.price}}{{'YUAN' | translate }}
                     </div>
 					<div class="col col-3"> 
                         <div class="change-goods-num clearfix J_changeGoodsNum">
@@ -58,10 +58,10 @@
 						</div>                                                        
                     </div>
 					<div class="col col-4">
-                        <em>{{cart.price*cart.count}}元</em>                           
+                        <em>{{cart.price*cart.count}}{{'YUAN' | translate }}</em>                           
                     </div>
 					<div class="col col-5">
-						<a id="2134900039_0_buy"  href="" title="删除" class="del J_delGoods"><img class="iconfont-del" ng-click="cart_del(cart.id)" src="../img/closed.ico" /></a>          
+						<a id="2134900039_0_buy"  href="" title="{{'DELETE' | translate }}" class="del J_delGoods"><img class="iconfont-del" ng-click="cart_del(cart.id)" src="../img/closed.ico" /></a>          
 					</div>
 				</div>
 			</dd>
@@ -72,11 +72,11 @@
                 
         </div>
 		<div class="shop-cart-total">
-            <p class="total-price">商品总计：<span><strong>{{pricetotal}}</strong>元</span></p>
+            <p class="total-price">{{'TOTAL' | translate }}<span><strong>{{pricetotal}}</strong>{{'YUAN' | translate }}</span></p>
         </div>
 		<div class="shop-cart-action clearfix">
-            <input type="button" class="btn btn-primary btn-next" id="toCheckBtn" ng-click="accounts()" value="去结账"></a>
-            <a href="" class="btn btn-lineDakeLight btn-back">继续购物</a>
+            <input type="button" class="btn btn-primary btn-next" id="toCheckBtn" ng-click="accounts()" value="{{'CHECK' | translate }}"></a>
+            <a href="" class="btn btn-lineDakeLight btn-back">{{'CONTINUE_BUY' | translate }}</a>
             <div class="tips">
                                
             </div>

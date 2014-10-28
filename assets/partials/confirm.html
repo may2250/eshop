@@ -1,6 +1,6 @@
 <div class="side-header site-mini-header container">
 	<div class="site-logo">
-		<a class="logo" href="/#/index" title="大橘子官网" >
+		<a class="logo" href="/#/index" title="{{'TITLE' | translate }}" >
 			<img src="/img/logo.jpg" />
 		</a>
 	</div>	
@@ -8,21 +8,21 @@
 <div class="container payment-con">
 	<div class="order-info">
 		<div class="msg">
-			<h3>您的订单已提交成功！付款咯～</h3>
+			<h3>{{'CONFIRM_SUCCESS' | translate }}</h3>
 			<p>
 										<!--请在<span class="pay-time-tip">??小时内</span>完成支付，超时后将取消订单-->
 			</p>
-			<p class="post-date">成功付款后，7个工作日内将为您发货</p>
+			<p class="post-date">{{'SUCCESS_TIP' | translate }}</p>
 		</div>
 		<div class="info">
 			<p>
-				金额：<span class="pay-total">{{orderinfo.pricetotal}}元</span>
+				{{'SUM' | translate }}<span class="pay-total">{{orderinfo.pricetotal}}{{'YUAN' | translate }}</span>
 			</p>
 			<p>
-				订单：{{orderinfo.orderid}}
+				{{'ORDER' | translate }}{{orderinfo.orderid}}
 			</p>
 			<p>
-				配送：{{addrinfo.name}} <span class="line">/</span>
+				{{'DELIVERY' | translate }}{{addrinfo.name}} <span class="line">/</span>
 				{{addrinfo.tel}}   <span class="line">/</span>
 				{{addrinfo.province}},{{addrinfo.city}},{{addrinfo.county}} {{addrinfo.street}}
 			</p>
@@ -34,15 +34,15 @@
 	<div class="xm-plain-box">
 		<div class="box-hd bank-title">
 			<div id="titleWrap" class="title-wrap">
-				<h2 class="title">选择支付方式</h2>
+				<h2 class="title">{{'CHOOSE_PAYWAY' | translate }}</h2>
 			</div>
 		</div>
 		<div class="box-bd">
 			<div class="payment-bd">
 				<dl class="clearfix payment-box">
 					<dt>
-						<strong>支付平台</strong>
-						<p>手机等大额支付推荐使用支付宝快捷支付</p>
+						<strong>{{'PAYMENT_PLATFORM' | translate }}</strong>
+						<p>{{'PAY_TIP' | translate }}</p>
 					</dt>
 					<dd>
 						<ul class="payment-list clearfix">
@@ -61,8 +61,8 @@
 				</dl>
 				<dl class="clearfix payment-box">
 					<dt>
-						<strong>银行网银</strong>
-						<p>支持以下各银行借记卡及信用卡</p>
+						<strong>{{'E_BANK' | translate }}</strong>
+						<p>{{'BANK_SUPPORT' | translate }}</p>
 					</dt>
 					<dd>
                         <ul class="payment-list clearfix">
@@ -135,8 +135,8 @@
 			</div>
 		</div>
 		<div class="box-ft clearfix">
-			<input type="button" class="btn btn-primary" value="下一步" ng-click="" />
-			<a href="" class="btn btn-lineDakeLight">修改订单</a>
+			<input type="button" class="btn btn-primary" value="{{'NEXT' | translate }}" ng-click="" />
+			<a href="" class="btn btn-lineDakeLight">{{'MODIFY_ORDER' | translate }}</a>
 			<span class="tip">
 			</span>
 		</div>
